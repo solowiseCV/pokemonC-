@@ -6,18 +6,18 @@ using PokesMan.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add Database Context
+
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Add Scoped Services
+
 builder.Services.AddScoped<AuthRepository>();
 builder.Services.AddScoped<TokenService>();
 
-// Add Controllers
+
 builder.Services.AddControllers();
 
-// Enable Swagger
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -30,11 +30,11 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-// Enable Swagger for all environments
+
 app.UseSwagger();
 app.UseSwaggerUI();
 
-// Middleware
+
 app.UseRouting();
 app.UseAuthorization();
 app.MapControllers();

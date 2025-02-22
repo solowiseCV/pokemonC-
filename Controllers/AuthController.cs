@@ -9,9 +9,9 @@ using System.Text;
 
 namespace PokesMan.Controllers
 {
-    [ApiController] // ✅ Correct placement
-    [Route("api/auth")] // ✅ Correct route
-    public class AuthController : ControllerBase // ✅ Correct class name
+    [ApiController] 
+    [Route("api/auth")] 
+    public class AuthController : ControllerBase 
     {
         private readonly AuthRepository _authRepo;
         private readonly TokenService _tokenService;
@@ -67,7 +67,7 @@ namespace PokesMan.Controllers
             return Ok($"Reset token: {user.ResetPasswordToken}");
         }
 
-        [HttpPost("reset-password")] // ✅ Added missing [HttpPost] attribute
+        [HttpPost("reset-password")] 
         public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordModel model)
         {
             var user = await _authRepo.GetUserByEmail(model.Email);
