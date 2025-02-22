@@ -1,0 +1,6 @@
+@PokesMan_HostAddress = http://localhost:5136
+
+GET {{PokesMan_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
